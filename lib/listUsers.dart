@@ -10,9 +10,9 @@ class ListUsersPage extends StatefulWidget {
 
 class _ListUsersPageState extends State<ListUsersPage> {
   List<dynamic> _users = [
-    {'username': 'User 1'},
-    {'username': 'User 2'},
-    {'username': 'User 3'}
+    {'username': 'User 1', 'id': 1},
+    {'username': 'User 2', 'id': 2},
+    {'username': 'User 3', 'id': 3}
   ]; // Liste des utilisateurs récupérés
 
   @override
@@ -50,7 +50,7 @@ class _ListUsersPageState extends State<ListUsersPage> {
                 context,
                 MaterialPageRoute(
                   builder: (context) => UserPage(
-                    username: user['username'],
+                    id: user['id'],
                   ),
                 ),
               );
