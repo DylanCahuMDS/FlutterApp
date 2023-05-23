@@ -48,13 +48,18 @@ class _UserPageState extends State<UserPage> {
       // Gérer l'erreur de récupération des détails de l'utilisateur
       const username = 'Test';
       const email = 'test@api.com';
+      setState(() {
+        _usernameController.text = username;
+        _emailController.text = email;
+      });
     }
   }
 
   void _saveChanges() {
     final newUsername = _usernameController.text;
     final newEmail = _emailController.text;
-    // Appliquer les modifications (envoyer une requête PUT à l'API, etc.)
+    // envoyer une requête PUT à l'API
+
     print('Nouveau nom d\'utilisateur : $newUsername');
     print('Nouvelle adresse e-mail : $newEmail');
     // Afficher une confirmation ou effectuer d'autres actions nécessaires
