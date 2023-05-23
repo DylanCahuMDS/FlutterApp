@@ -55,11 +55,20 @@ class _UserPageState extends State<UserPage> {
     }
   }
 
-  void _saveChanges() {
+  Future<void> _saveChanges() async {
     final newUsername = _usernameController.text;
     final newEmail = _emailController.text;
-    // envoyer une requête PUT à l'API
 
+    final String body = json.encode({
+      'username': newUsername,
+      'password': newEmail,
+    });
+
+    //put request with newUsername and newEmail
+    final response = await http.put(
+      Uri.https('caen0001.mds-caen.yt', '/users/${widget.id}'),
+      body: body,
+    );
     print('Nouveau nom d\'utilisateur : $newUsername');
     print('Nouvelle adresse e-mail : $newEmail');
     // Afficher une confirmation ou effectuer d'autres actions nécessaires
