@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:mydigitalgpt/createUnivers.dart';
+import 'package:mydigitalgpt/listUnivers.dart';
 import 'package:mydigitalgpt/login.dart';
 import 'package:mydigitalgpt/listusers.dart';
+import 'package:mydigitalgpt/universPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -44,14 +47,36 @@ class MyHomePage extends StatelessWidget {
       ),
       body: //bouton "liste des users"
           Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => ListUsersPage()),
-            );
-          },
-          child: const Text('Liste des utilisateurs'),
+        child: Column(
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ListUsersPage()),
+                );
+              },
+              child: const Text('Liste des utilisateurs'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => CreateUniversPage()),
+                );
+              },
+              child: const Text('Créer un univers'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ListUniversPage()),
+                );
+              },
+              child: const Text('Liste des univers'),
+            ),
+          ],
         ),
       ),
     );
